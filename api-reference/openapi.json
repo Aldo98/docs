@@ -1,217 +1,10393 @@
 {
-  "openapi": "3.1.0",
-  "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
+
+    "openapi": "3.0.3",
+
+    "info": {
+
+        "title": "WARe",
+
+        "version": "1.0.0",
+
+        "description": "WA API selling"
+
     },
-    "version": "1.0.0"
-  },
-  "servers": [
-    {
-      "url": "http://sandbox.mintlify.com"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
-  "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
+
+    "paths": {
+
+        "/WARe/": {
+
+            "get": {
+
+                "operationId": "WARe_retrieve",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
                 }
-              }
+
             }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          },
-          "required": true
+
         },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
+
+        "/WARe/{params}": {
+
+            "get": {
+
+                "operationId": "WARe_retrieve_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
                 }
-              }
-            }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
+
+            },
+
+            "post": {
+
+                "operationId": "WARe_create",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
                 }
-              }
+
             }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "webhooks": {
-    "/plant/webhook": {
-      "post": {
-        "description": "Information about a new plant added to the store",
-        "requestBody": {
-          "description": "Plant added to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
-          }
+
         },
-        "responses": {
-          "200": {
-            "description": "Return a 200 status to indicate that the data was received successfully"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
+
+        "/WARe/async_result": {
+
+            "get": {
+
+                "operationId": "WARe_async_result_retrieve",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
             }
-          }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "message": {
-            "type": "string"
-          }
+
+        },
+
+        "/WARe/message_qrdls": {
+
+            "post": {
+
+                "operationId": "WARe_message_qrdls_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "WARe_message_qrdls_destroy",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "204": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages": {
+
+            "post": {
+
+                "operationId": "WARe_messages_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/SendMessageMETASchemaValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/phone/{params}": {
+
+            "get": {
+
+                "operationId": "WARe_phone_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "WARe_phone_create",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "WARe_phone_destroy",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "204": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/phone/send_template": {
+
+            "post": {
+
+                "operationId": "WARe_phone_send_template_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/upload-file": {
+
+            "post": {
+
+                "operationId": "WARe_upload_file_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/waba/{params}": {
+
+            "get": {
+
+                "operationId": "WARe_waba_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "WARe_waba_create",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "params",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/webhooks": {
+
+            "get": {
+
+                "operationId": "WARe_webhooks_retrieve",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "WARe_webhooks_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/whatsapp_business_profile": {
+
+            "get": {
+
+                "operationId": "WARe_whatsapp_business_profile_retrieve",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "WARe_whatsapp_business_profile_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/ai-conf/instance": {
+
+            "get": {
+
+                "operationId": "ai_conf_instance_retrieve",
+
+                "tags": [
+
+                    "ai-conf"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/InstanceAI"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "ai_conf_instance_create",
+
+                "tags": [
+
+                    "ai-conf"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InstanceAIRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InstanceAIRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InstanceAIRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/InstanceAI"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/ai-conf/models": {
+
+            "get": {
+
+                "operationId": "ai_conf_models_retrieve",
+
+                "tags": [
+
+                    "ai-conf"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/ai/chat/{uniqueid}/messages": {
+
+            "get": {
+
+                "operationId": "ai_chat_messages_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "ai"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/AiChatMessageAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "ai_chat_messages_create",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "ai"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/AIChatMessagesRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/AIChatMessagesRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/AIChatMessagesRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/AIChatMessages"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/ai/chat/{uniqueid}/vote": {
+
+            "get": {
+
+                "operationId": "ai_chat_vote_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "ai"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/AiChatVoteResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/ai/chats": {
+
+            "get": {
+
+                "operationId": "ai_chats_retrieve",
+
+                "tags": [
+
+                    "ai"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/AiChatAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/analytics/primary": {
+
+            "get": {
+
+                "operationId": "analytics_primary_retrieve",
+
+                "tags": [
+
+                    "analytics"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/analytics/secondary": {
+
+            "get": {
+
+                "operationId": "analytics_secondary_retrieve",
+
+                "tags": [
+
+                    "analytics"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/api-keys": {
+
+            "get": {
+
+                "operationId": "auth_api_keys_retrieve",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/APIKeysResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/api-keys/regenerate": {
+
+            "get": {
+
+                "operationId": "auth_api_keys_regenerate_retrieve",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/APIKeysResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/login": {
+
+            "post": {
+
+                "operationId": "auth_login_create",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/LoginRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/LoginRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/LoginRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/LoginSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "201": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/LoginAPIResponse201Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "403": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/register": {
+
+            "post": {
+
+                "operationId": "auth_register_create",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/RegisterSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/RegisterAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "409": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/reset-password": {
+
+            "post": {
+
+                "operationId": "auth_reset_password_create",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequestRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequestRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequestRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ResetPasswordRequest"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/reset-password/{token_auth}": {
+
+            "get": {
+
+                "operationId": "auth_reset_password_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "token_auth",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ResetPassword"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "auth_reset_password_create_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "token_auth",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ResetPasswordRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ResetPassword"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/switch": {
+
+            "post": {
+
+                "operationId": "auth_switch_create",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SwitchRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SwitchRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SwitchRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/SwitchSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/SwitchAPIRegisterResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/auth/verify-email": {
+
+            "post": {
+
+                "operationId": "auth_verify_email_create",
+
+                "tags": [
+
+                    "auth"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/RegisterRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/RegisterSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/VerifyAPIRegisterResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/campaigns": {
+
+            "get": {
+
+                "operationId": "campaigns_retrieve",
+
+                "tags": [
+
+                    "campaigns"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/conversation/{conversation_id}/messages": {
+
+            "post": {
+
+                "operationId": "conversation_messages_create",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "conversation_id",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "conversation"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ConversationMessageRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ConversationMessageRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ConversationMessageRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WebhookIntegrationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ConversationMessageAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/conversations": {
+
+            "get": {
+
+                "operationId": "conversations_retrieve",
+
+                "tags": [
+
+                    "conversations"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ConversationAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/integrations": {
+
+            "get": {
+
+                "operationId": "integrations_retrieve",
+
+                "tags": [
+
+                    "integrations"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/library/templates": {
+
+            "get": {
+
+                "operationId": "library_templates_retrieve",
+
+                "tags": [
+
+                    "library"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/TemplateLibAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/lists": {
+
+            "get": {
+
+                "operationId": "lists_retrieve",
+
+                "tags": [
+
+                    "lists"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ListAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "lists_create",
+
+                "tags": [
+
+                    "lists"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactListSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ListAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/lists/{uniqueid}": {
+
+            "get": {
+
+                "operationId": "lists_retrieve_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "lists"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ListDetailAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "lists_create_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "lists"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactListRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactListSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ListDetailAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "lists_destroy",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "lists"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "204": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/opt-in": {
+
+            "get": {
+
+                "operationId": "opt_in_retrieve",
+
+                "tags": [
+
+                    "opt-in"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OPTIn"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "opt_in_create",
+
+                "tags": [
+
+                    "opt-in"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OPTInRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OPTInRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OPTInRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OPTIn"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization": {
+
+            "get": {
+
+                "operationId": "organization_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OrganizationAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "organization_create",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OrganizationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OrganizationAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "organization_destroy",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/invites": {
+
+            "post": {
+
+                "operationId": "organization_invites_create",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InviteMemberRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InviteMemberRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/InviteMemberRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/InviteMember"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/invites/{slug}": {
+
+            "get": {
+
+                "operationId": "organization_invites_retrieve",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "slug",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/InvitesSlugAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "organization_invites_create_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "slug",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/members": {
+
+            "get": {
+
+                "operationId": "organization_members_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MemberAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/phone-numbers": {
+
+            "get": {
+
+                "operationId": "organization_phone_numbers_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/PhoneNumberAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/tags": {
+
+            "get": {
+
+                "operationId": "organization_tags_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/TagAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/templates": {
+
+            "get": {
+
+                "operationId": "organization_templates_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/TemplateOrgAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/update-ai": {
+
+            "get": {
+
+                "operationId": "organization_update_ai_retrieve",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "organization_update_ai_create",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/organization/whatsappBusinessAccount": {
+
+            "post": {
+
+                "operationId": "organization_whatsappBusinessAccount_create",
+
+                "tags": [
+
+                    "organization"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationWABARequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationWABARequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/OrganizationWABARequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OrganizationWABASerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/OrganizationWABAAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/qr-code": {
+
+            "get": {
+
+                "operationId": "qr_code_retrieve",
+
+                "tags": [
+
+                    "qr-code"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/QrCode"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "qr_code_create",
+
+                "tags": [
+
+                    "qr-code"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/QrCodeRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/QrCodeRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/QrCodeRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WebhookIntegrationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/QRCodeAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/rbac/roles": {
+
+            "get": {
+
+                "operationId": "rbac_roles_retrieve",
+
+                "tags": [
+
+                    "rbac"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/RoleAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/sandbox": {
+
+            "post": {
+
+                "operationId": "sandbox_create",
+
+                "tags": [
+
+                    "sandbox"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SandboxRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SandboxRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/SandboxRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WebhookIntegrationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponseMETASchema"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/templates": {
+
+            "post": {
+
+                "operationId": "templates_create",
+
+                "tags": [
+
+                    "templates"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/TemplateSchemaValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/CreateTemplateResponseSchema"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "put": {
+
+                "operationId": "templates_update",
+
+                "tags": [
+
+                    "templates"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/TemplateSchemaRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/TemplateSchemaValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/SuccessSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/user": {
+
+            "get": {
+
+                "operationId": "user_retrieve",
+
+                "tags": [
+
+                    "user"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/UserAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "user_destroy",
+
+                "tags": [
+
+                    "user"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/user/notifications": {
+
+            "get": {
+
+                "operationId": "user_notifications_retrieve",
+
+                "tags": [
+
+                    "user"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/NotificationsAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/users": {
+
+            "get": {
+
+                "operationId": "users_retrieve",
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "users_create",
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/users/{uniqueid}": {
+
+            "get": {
+
+                "operationId": "users_retrieve_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactDetailAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "users_create_2",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/ContactRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactDetailAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "delete": {
+
+                "operationId": "users_destroy",
+
+                "parameters": [
+
+                    {
+
+                        "in": "path",
+
+                        "name": "uniqueid",
+
+                        "schema": {
+
+                            "type": "string"
+
+                        },
+
+                        "required": true
+
+                    }
+
+                ],
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "204": {
+
+                        "description": "No response body"
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/users/bulkImport": {
+
+            "post": {
+
+                "operationId": "users_bulkImport_create",
+
+                "tags": [
+
+                    "users"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactBulkUploadSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/ContactBulkUploadAPIResponse200Post"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/wa-profile": {
+
+            "get": {
+
+                "operationId": "wa_profile_retrieve",
+
+                "tags": [
+
+                    "wa-profile"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WAProfile"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "wa_profile_create",
+
+                "tags": [
+
+                    "wa-profile"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WAProfileRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WAProfileRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WAProfileRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WAProfile"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/webhook": {
+
+            "get": {
+
+                "operationId": "webhook_retrieve",
+
+                "tags": [
+
+                    "webhook"
+
+                ],
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WebhookAPIResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            },
+
+            "post": {
+
+                "operationId": "webhook_create",
+
+                "tags": [
+
+                    "webhook"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WebhookIntegrationRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WebhookIntegrationRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/WebhookIntegrationRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/WebhookIntegrationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSchemaResponse"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
         }
-      }
+
     },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
+
+    "components": {
+
+        "schemas": {
+
+            "AIChatMessages": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "query": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "query"
+
+                ]
+
+            },
+
+            "AIChatMessagesRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "query": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "query"
+
+                ]
+
+            },
+
+            "AISpesializationEnum": {
+
+                "enum": [
+
+                    "marketing",
+
+                    "customerService"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `marketing` - marketing\n* `customerService` - customerService"
+
+            },
+
+            "APIKeysResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "apiKey": {
+
+                        "type": "string"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "apiKey",
+
+                    "message"
+
+                ]
+
+            },
+
+            "AiChatAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "chats": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/AiChatSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "chats",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "AiChatMessageAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "messages": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/AiChatMessageSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "messages",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "AiChatMessageSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "conversationId": {
+
+                        "type": "string"
+
+                    },
+
+                    "direction": {
+
+                        "type": "string"
+
+                    },
+
+                    "message_type": {
+
+                        "type": "string"
+
+                    },
+
+                    "messageData": {},
+
+                    "status": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "conversationId",
+
+                    "createdAt",
+
+                    "direction",
+
+                    "messageData",
+
+                    "message_type",
+
+                    "status",
+
+                    "uniqueId",
+
+                    "updatedAt"
+
+                ]
+
+            },
+
+            "AiChatSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "title": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "description",
+
+                    "title",
+
+                    "uniqueId",
+
+                    "updatedAt"
+
+                ]
+
+            },
+
+            "AiChatVoteResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "votes": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/AiChatVoteSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "paginationMeta",
+
+                    "votes"
+
+                ]
+
+            },
+
+            "AiChatVoteSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "messageId": {
+
+                        "type": "string"
+
+                    },
+
+                    "vote": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "messageId",
+
+                    "uniqueId",
+
+                    "updatedAt",
+
+                    "vote"
+
+                ]
+
+            },
+
+            "BlankEnum": {
+
+                "enum": [
+
+                    ""
+
+                ]
+
+            },
+
+            "ChannelEnum": {
+
+                "enum": [
+
+                    "wa",
+
+                    "sms"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `wa` - wa\n* `sms` - sms"
+
+            },
+
+            "ContactAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "users": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/ContactSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "paginationMeta",
+
+                    "users"
+
+                ]
+
+            },
+
+            "ContactAttributeRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "tipe": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                }
+
+            },
+
+            "ContactBulkUploadAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "task_id": {
+
+                        "type": "string"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message",
+
+                    "task_id"
+
+                ]
+
+            },
+
+            "ContactBulkUploadSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "file": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "delimiter": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "listIds": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "ContactDetailAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "user": {
+
+                        "$ref": "#/components/schemas/ContactSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "user"
+
+                ]
+
+            },
+
+            "ContactDetailAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "user": {
+
+                        "$ref": "#/components/schemas/ContactSchema"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message",
+
+                    "user"
+
+                ]
+
+            },
+
+            "ContactListRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "description",
+
+                    "name"
+
+                ]
+
+            },
+
+            "ContactListSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "numberOfContacts": {
+
+                        "type": "integer"
+
+                    },
+
+                    "numberOfCampaignsSent": {
+
+                        "type": "integer"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "description",
+
+                    "name",
+
+                    "numberOfCampaignsSent",
+
+                    "numberOfContacts",
+
+                    "uniqueId"
+
+                ]
+
+            },
+
+            "ContactListSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "description": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "ContactRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "attributes": {
+
+                        "type": "object",
+
+                        "additionalProperties": {
+
+                            "$ref": "#/components/schemas/ContactAttributeRequest"
+
+                        },
+
+                        "nullable": true
+
+                    },
+
+                    "listsIds": {
+
+                        "type": "array",
+
+                        "items": {}
+
+                    },
+
+                    "lists": {
+
+                        "type": "array",
+
+                        "items": {}
+
+                    },
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "phone": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "status": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "attributes",
+
+                    "name",
+
+                    "phone",
+
+                    "status"
+
+                ]
+
+            },
+
+            "ContactSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "input": {
+
+                        "type": "string"
+
+                    },
+
+                    "wa_id": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "input",
+
+                    "wa_id"
+
+                ]
+
+            },
+
+            "ContactSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "attributes": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "listsIds": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "lists": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "phone": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "status": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "ConversationAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "conversations": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/ConversationSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "conversations",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "ConversationMessageAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message": {
+
+                        "$ref": "#/components/schemas/AiChatMessageSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message"
+
+                ]
+
+            },
+
+            "ConversationMessageDataRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "text": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "text"
+
+                ]
+
+            },
+
+            "ConversationMessageRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "messageType": {
+
+                        "$ref": "#/components/schemas/MessageTypeEnum"
+
+                    },
+
+                    "messageData": {
+
+                        "$ref": "#/components/schemas/ConversationMessageDataRequest"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "messageData",
+
+                    "messageType"
+
+                ]
+
+            },
+
+            "ConversationSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "status": {
+
+                        "type": "string"
+
+                    },
+
+                    "contactId": {
+
+                        "type": "string"
+
+                    },
+
+                    "phoneNumberUsed": {
+
+                        "type": "string"
+
+                    },
+
+                    "initiatedBy": {
+
+                        "type": "string"
+
+                    },
+
+                    "campaignId": {
+
+                        "type": "string"
+
+                    },
+
+                    "organizationId": {
+
+                        "type": "string"
+
+                    },
+
+                    "messages": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageSchema"
+
+                        }
+
+                    },
+
+                    "numberOfUnreadMessages": {
+
+                        "type": "integer"
+
+                    },
+
+                    "tags": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TagSchema"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "campaignId",
+
+                    "contactId",
+
+                    "createdAt",
+
+                    "initiatedBy",
+
+                    "messages",
+
+                    "numberOfUnreadMessages",
+
+                    "organizationId",
+
+                    "phoneNumberUsed",
+
+                    "status",
+
+                    "tags",
+
+                    "uniqueId",
+
+                    "updatedAt"
+
+                ]
+
+            },
+
+            "CreateTemplateResponseSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "id": {
+
+                        "type": "string"
+
+                    },
+
+                    "status": {
+
+                        "type": "string"
+
+                    },
+
+                    "category": {
+
+                        "type": "string"
+
+                    },
+
+                    "error": {
+
+                        "$ref": "#/components/schemas/ErrorResponseMETASchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "category",
+
+                    "error",
+
+                    "id",
+
+                    "status"
+
+                ]
+
+            },
+
+            "ErrorResponseMETASchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message": {
+
+                        "type": "string"
+
+                    },
+
+                    "type": {
+
+                        "type": "string"
+
+                    },
+
+                    "code": {
+
+                        "type": "integer"
+
+                    },
+
+                    "error_subcode": {
+
+                        "type": "string"
+
+                    },
+
+                    "is_transient": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "error_user_title": {
+
+                        "type": "string"
+
+                    },
+
+                    "error_user_msg": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "code",
+
+                    "error_subcode",
+
+                    "error_user_msg",
+
+                    "error_user_title",
+
+                    "is_transient",
+
+                    "message",
+
+                    "type"
+
+                ]
+
+            },
+
+            "InstanceAI": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "model": {
+
+                        "type": "string"
+
+                    },
+
+                    "companyUrl": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "companyDocumentation": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "aISpesialization": {
+
+                        "nullable": true,
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/AISpesializationEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/BlankEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    }
+
+                },
+
+                "required": [
+
+                    "aISpesialization",
+
+                    "companyDocumentation",
+
+                    "companyUrl",
+
+                    "model"
+
+                ]
+
+            },
+
+            "InstanceAIRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "model": {
+
+                        "type": "string"
+
+                    },
+
+                    "companyUrl": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "companyDocumentation": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "aISpesialization": {
+
+                        "nullable": true,
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/AISpesializationEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/BlankEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    }
+
+                },
+
+                "required": [
+
+                    "aISpesialization",
+
+                    "companyDocumentation",
+
+                    "companyUrl",
+
+                    "model"
+
+                ]
+
+            },
+
+            "InviteMember": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "email": {
+
+                        "type": "string"
+
+                    },
+
+                    "accessLevel": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessLevel",
+
+                    "email"
+
+                ]
+
+            },
+
+            "InviteMemberRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "email": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "accessLevel": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessLevel",
+
+                    "email"
+
+                ]
+
+            },
+
+            "InvitesSlugAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "succes": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    },
+
+                    "organization": {
+
+                        "$ref": "#/components/schemas/OrganizationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message",
+
+                    "organization",
+
+                    "succes"
+
+                ]
+
+            },
+
+            "ListAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "lists": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/ContactListSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "lists",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "ListAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "list": {
+
+                        "$ref": "#/components/schemas/ContactListSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "list"
+
+                ]
+
+            },
+
+            "ListDetailAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "list": {
+
+                        "$ref": "#/components/schemas/ContactListSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "list"
+
+                ]
+
+            },
+
+            "ListDetailAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "list": {
+
+                        "$ref": "#/components/schemas/ContactListSchema"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "list",
+
+                    "message"
+
+                ]
+
+            },
+
+            "LoginAPIResponse201Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "token": {
+
+                        "type": "string"
+
+                    },
+
+                    "is_on_boarding_completed": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "success": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "is_on_boarding_completed",
+
+                    "success",
+
+                    "token"
+
+                ]
+
+            },
+
+            "LoginRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "username": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "password": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "password",
+
+                    "username"
+
+                ]
+
+            },
+
+            "LoginSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "username": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "password": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MemberAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "members": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MemberSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "members",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "MemberRoleSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "permissions": {
+
+                        "type": "string"
+
+                    },
+
+                    "organization": {
+
+                        "$ref": "#/components/schemas/OrganizationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "description",
+
+                    "name",
+
+                    "organization",
+
+                    "permissions",
+
+                    "uniqueId",
+
+                    "updatedAt"
+
+                ]
+
+            },
+
+            "MemberSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "email": {
+
+                        "type": "string"
+
+                    },
+
+                    "accessLevel": {
+
+                        "type": "string"
+
+                    },
+
+                    "roles": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MemberRoleSchema"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessLevel",
+
+                    "createdAt",
+
+                    "email",
+
+                    "name",
+
+                    "roles",
+
+                    "uniqueId"
+
+                ]
+
+            },
+
+            "MessageMETASchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "id": {
+
+                        "type": "string"
+
+                    },
+
+                    "message_status": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "id",
+
+                    "message_status"
+
+                ]
+
+            },
+
+            "MessageRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "to": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "maxLength": 20
+
+                    },
+
+                    "message_type": {
+
+                        "$ref": "#/components/schemas/MessageTypeEnum"
+
+                    },
+
+                    "message_content": {
+
+                        "type": "string",
+
+                        "nullable": true
+
+                    },
+
+                    "template_name": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "maxLength": 100
+
+                    },
+
+                    "message_id": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "maxLength": 50
+
+                    },
+
+                    "components": {
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "message_type",
+
+                    "to"
+
+                ]
+
+            },
+
+            "MessageResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message_id": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message_id"
+
+                ]
+
+            },
+
+            "MessageResponseMETASchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "messaging_product": {
+
+                        "type": "string"
+
+                    },
+
+                    "contacts": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/ContactSchema"
+
+                        }
+
+                    },
+
+                    "message": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageMETASchema"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "contacts",
+
+                    "message",
+
+                    "messaging_product"
+
+                ]
+
+            },
+
+            "MessageSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "direction": {
+
+                        "type": "string"
+
+                    },
+
+                    "status": {
+
+                        "type": "string"
+
+                    },
+
+                    "conversationId": {
+
+                        "type": "string"
+
+                    },
+
+                    "message_type": {
+
+                        "type": "string"
+
+                    },
+
+                    "messageData": {
+
+                        "type": "object",
+
+                        "additionalProperties": {}
+
+                    }
+
+                },
+
+                "required": [
+
+                    "conversationId",
+
+                    "createdAt",
+
+                    "direction",
+
+                    "messageData",
+
+                    "message_type",
+
+                    "status",
+
+                    "uniqueId"
+
+                ]
+
+            },
+
+            "MessageSchemaResponse": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message"
+
+                ]
+
+            },
+
+            "MessageTypeEnum": {
+
+                "enum": [
+
+                    "Text",
+
+                    "Image",
+
+                    "Video",
+
+                    "Audio",
+
+                    "Document",
+
+                    "Sticker",
+
+                    "Location",
+
+                    "Users",
+
+                    "Reaction",
+
+                    "Address"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `Text` - Text\n* `Image` - Image\n* `Video` - Video\n* `Audio` - Audio\n* `Document` - Document\n* `Sticker` - Sticker\n* `Location` - Location\n* `Users` - Users\n* `Reaction` - Reaction\n* `Address` - Address"
+
+            },
+
+            "NotificationSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "updatedat": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "ctaUrl": {
+
+                        "type": "string"
+
+                    },
+
+                    "title": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "type": {
+
+                        "type": "string"
+
+                    },
+
+                    "isBroadcast": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "userId": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "ctaUrl",
+
+                    "description",
+
+                    "isBroadcast",
+
+                    "title",
+
+                    "type",
+
+                    "uniqueId",
+
+                    "updatedat",
+
+                    "userId"
+
+                ]
+
+            },
+
+            "NotificationsAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "notifications": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/NotificationSchema"
+
+                        },
+
+                        "nullable": true
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    },
+
+                    "unreadCount": {
+
+                        "type": "integer"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "notifications",
+
+                    "paginationMeta",
+
+                    "unreadCount"
+
+                ]
+
+            },
+
+            "NullEnum": {
+
+                "enum": [
+
+                    null
+
+                ]
+
+            },
+
+            "OPTIn": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "autoOpt": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "lang": {
+
+                        "type": "string"
+
+                    },
+
+                    "prefilledMessage": {
+
+                        "type": "string"
+
+                    },
+
+                    "clickUrl": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "autoOpt",
+
+                    "clickUrl",
+
+                    "lang",
+
+                    "prefilledMessage"
+
+                ]
+
+            },
+
+            "OPTInRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "autoOpt": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "lang": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "prefilledMessage": {
+
+                        "type": "string"
+
+                    },
+
+                    "clickUrl": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "autoOpt",
+
+                    "clickUrl",
+
+                    "lang",
+
+                    "prefilledMessage"
+
+                ]
+
+            },
+
+            "OrganizationAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "organizations": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/OrganizationSchema"
+
+                        },
+
+                        "nullable": true
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "organizations",
+
+                    "paginationMeta"
+
+                ]
+
+            },
+
+            "OrganizationAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "organization": {
+
+                        "$ref": "#/components/schemas/OrganizationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "organization"
+
+                ]
+
+            },
+
+            "OrganizationRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "name"
+
+                ]
+
+            },
+
+            "OrganizationSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "updatedat": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "websiteurl": {
+
+                        "type": "string"
+
+                    },
+
+                    "logourl": {
+
+                        "type": "string"
+
+                    },
+
+                    "slackwebhookurl": {
+
+                        "type": "string"
+
+                    },
+
+                    "slackchannel": {
+
+                        "type": "string"
+
+                    },
+
+                    "smtpclienthost": {
+
+                        "type": "string"
+
+                    },
+
+                    "smtpclientusername": {
+
+                        "type": "string"
+
+                    },
+
+                    "smtpclientpassword": {
+
+                        "type": "string"
+
+                    },
+
+                    "smtpclientport": {
+
+                        "type": "string"
+
+                    },
+
+                    "isaienabled": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "whatsappBusinessAccountDetails": {
+
+                        "$ref": "#/components/schemas/WhatsappBusinessAccountSchema"
+
+                    },
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "faviconUrl": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "description",
+
+                    "faviconUrl",
+
+                    "isaienabled",
+
+                    "logourl",
+
+                    "name",
+
+                    "slackchannel",
+
+                    "slackwebhookurl",
+
+                    "smtpclienthost",
+
+                    "smtpclientpassword",
+
+                    "smtpclientport",
+
+                    "smtpclientusername",
+
+                    "uniqueId",
+
+                    "updatedat",
+
+                    "websiteurl",
+
+                    "whatsappBusinessAccountDetails"
+
+                ]
+
+            },
+
+            "OrganizationSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "OrganizationWABAAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "accessToken": {
+
+                        "type": "string"
+
+                    },
+
+                    "businessAccountId": {
+
+                        "type": "string"
+
+                    },
+
+                    "webhookSecret": {
+
+                        "type": "string"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessToken",
+
+                    "businessAccountId",
+
+                    "message",
+
+                    "webhookSecret"
+
+                ]
+
+            },
+
+            "OrganizationWABARequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "accessToken": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "businessAccountId": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessToken",
+
+                    "businessAccountId"
+
+                ]
+
+            },
+
+            "OrganizationWABASerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "accessToken": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "businessAccountId": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "PaginationSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "page": {
+
+                        "type": "integer"
+
+                    },
+
+                    "per_page": {
+
+                        "type": "integer"
+
+                    },
+
+                    "total": {
+
+                        "type": "integer"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "page",
+
+                    "per_page",
+
+                    "total"
+
+                ]
+
+            },
+
+            "PagingCursorMETASchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "before": {
+
+                        "type": "string"
+
+                    },
+
+                    "after": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "after",
+
+                    "before"
+
+                ]
+
+            },
+
+            "PagingMETASchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "cursor": {
+
+                        "$ref": "#/components/schemas/PagingCursorMETASchema"
+
+                    },
+
+                    "next": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "previous": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "cursor"
+
+                ]
+
+            },
+
+            "PhoneNumberAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "data": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/PhoneNumberSchema"
+
+                        }
+
+                    },
+
+                    "paging": {
+
+                        "$ref": "#/components/schemas/PagingMETASchema"
+
+                    },
+
+                    "error": {
+
+                        "$ref": "#/components/schemas/ErrorResponseMETASchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "data",
+
+                    "paging"
+
+                ]
+
+            },
+
+            "PhoneNumberSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "verified_name": {
+
+                        "type": "string"
+
+                    },
+
+                    "code_verification_status": {
+
+                        "type": "string"
+
+                    },
+
+                    "display_phone_number": {
+
+                        "type": "string"
+
+                    },
+
+                    "quality_rating": {
+
+                        "type": "string"
+
+                    },
+
+                    "platform_type": {
+
+                        "type": "string"
+
+                    },
+
+                    "throughput": {
+
+                        "$ref": "#/components/schemas/PhoneNumberThroughputSchema"
+
+                    },
+
+                    "webhook_configuration": {
+
+                        "$ref": "#/components/schemas/PhoneNumberWebhookConfigurationSchema"
+
+                    },
+
+                    "id": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "code_verification_status",
+
+                    "display_phone_number",
+
+                    "id",
+
+                    "platform_type",
+
+                    "quality_rating",
+
+                    "throughput",
+
+                    "verified_name",
+
+                    "webhook_configuration"
+
+                ]
+
+            },
+
+            "PhoneNumberThroughputSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "level": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "level"
+
+                ]
+
+            },
+
+            "PhoneNumberWebhookConfigurationSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "application": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "application"
+
+                ]
+
+            },
+
+            "QRCodeAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message"
+
+                ]
+
+            },
+
+            "QrCode": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "prefilledMessage": {
+
+                        "type": "string"
+
+                    },
+
+                    "lang": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "lang",
+
+                    "prefilledMessage"
+
+                ]
+
+            },
+
+            "QrCodeRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "prefilledMessage": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "lang": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "lang",
+
+                    "prefilledMessage"
+
+                ]
+
+            },
+
+            "RegisterAPIResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "isOtpSent": {
+
+                        "type": "boolean"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "isOtpSent"
+
+                ]
+
+            },
+
+            "RegisterRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "username": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "email": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "password": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "organizationInviteSlug": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "otp": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "email",
+
+                    "name",
+
+                    "password",
+
+                    "username"
+
+                ]
+
+            },
+
+            "RegisterSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "username": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "email": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "password": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "organizationInviteSlug": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "otp": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "ResetPassword": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "password": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "password"
+
+                ]
+
+            },
+
+            "ResetPasswordRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "email": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "email"
+
+                ]
+
+            },
+
+            "ResetPasswordRequestRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "email": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "email"
+
+                ]
+
+            },
+
+            "Response500": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message"
+
+                ]
+
+            },
+
+            "RoleAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "roles": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MemberRoleSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "paginationMeta",
+
+                    "roles"
+
+                ]
+
+            },
+
+            "SandboxRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "templateId": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "templateId"
+
+                ]
+
+            },
+
+            "SendMessageMETASchemaValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "messaging_product": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "recipient_type": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "to": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "type": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "context": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "text": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "reaction": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "image": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "location": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "contacts": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "interactive": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "SuccessSchemaResponse": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "success": {
+
+                        "type": "boolean"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "success"
+
+                ]
+
+            },
+
+            "SwitchAPIRegisterResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "token": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "token"
+
+                ]
+
+            },
+
+            "SwitchRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "organizationId": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "organizationId"
+
+                ]
+
+            },
+
+            "SwitchSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "organizationId": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "TagAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "tags": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TagSchema"
+
+                        }
+
+                    },
+
+                    "paginationMeta": {
+
+                        "$ref": "#/components/schemas/PaginationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "paginationMeta",
+
+                    "tags"
+
+                ]
+
+            },
+
+            "TagSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "updatedAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "label": {
+
+                        "type": "string"
+
+                    },
+
+                    "slug": {
+
+                        "type": "string"
+
+                    },
+
+                    "organization": {
+
+                        "$ref": "#/components/schemas/OrganizationSchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "label",
+
+                    "organization",
+
+                    "slug",
+
+                    "uniqueId",
+
+                    "updatedAt"
+
+                ]
+
+            },
+
+            "TemplateComponentButtonSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "type": "string"
+
+                    },
+
+                    "text": {
+
+                        "type": "string"
+
+                    },
+
+                    "url": {
+
+                        "type": "string",
+
+                        "format": "uri"
+
+                    },
+
+                    "phone_number": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "text",
+
+                    "type"
+
+                ]
+
+            },
+
+            "TemplateComponentButtonSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "text": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "url": {
+
+                        "type": "string",
+
+                        "format": "uri",
+
+                        "minLength": 1
+
+                    },
+
+                    "phone_number": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "text",
+
+                    "type"
+
+                ]
+
+            },
+
+            "TemplateComponentExampleSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "body_text": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "array",
+
+                            "items": {
+
+                                "type": "string"
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "TemplateComponentExampleSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "body_text": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "array",
+
+                            "items": {
+
+                                "type": "string",
+
+                                "minLength": 1
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "TemplateComponentSchame": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "type": "string"
+
+                    },
+
+                    "text": {
+
+                        "type": "string"
+
+                    },
+
+                    "format": {
+
+                        "type": "string"
+
+                    },
+
+                    "example": {
+
+                        "$ref": "#/components/schemas/TemplateComponentExampleSchema"
+
+                    },
+
+                    "buttons": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateComponentButtonSchema"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "type"
+
+                ]
+
+            },
+
+            "TemplateComponentSchameRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "text": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "format": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "example": {
+
+                        "$ref": "#/components/schemas/TemplateComponentExampleSchemaRequest"
+
+                    },
+
+                    "buttons": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateComponentButtonSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "type"
+
+                ]
+
+            },
+
+            "TemplateLibAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "data": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateLibSchema"
+
+                        }
+
+                    },
+
+                    "paging": {
+
+                        "$ref": "#/components/schemas/PagingMETASchema"
+
+                    },
+
+                    "error": {
+
+                        "$ref": "#/components/schemas/ErrorResponseMETASchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "data",
+
+                    "paging"
+
+                ]
+
+            },
+
+            "TemplateLibSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "language": {
+
+                        "type": "string"
+
+                    },
+
+                    "category": {
+
+                        "type": "string"
+
+                    },
+
+                    "topic": {
+
+                        "type": "string"
+
+                    },
+
+                    "usecase": {
+
+                        "type": "string"
+
+                    },
+
+                    "industry": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "header": {
+
+                        "type": "string"
+
+                    },
+
+                    "body": {
+
+                        "type": "string"
+
+                    },
+
+                    "body_params": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "body_param_types": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "buttons": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateComponentButtonSchema"
+
+                        }
+
+                    },
+
+                    "id": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "body_param_types",
+
+                    "body_params",
+
+                    "buttons",
+
+                    "category",
+
+                    "header",
+
+                    "id",
+
+                    "industry",
+
+                    "language",
+
+                    "name",
+
+                    "topic",
+
+                    "usecase"
+
+                ]
+
+            },
+
+            "TemplateOrgAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "data": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateSchema"
+
+                        }
+
+                    },
+
+                    "paging": {
+
+                        "$ref": "#/components/schemas/PagingMETASchema"
+
+                    },
+
+                    "error": {
+
+                        "$ref": "#/components/schemas/ErrorResponseMETASchema"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "data",
+
+                    "paging"
+
+                ]
+
+            },
+
+            "TemplateSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "parameter_format": {
+
+                        "type": "string"
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateComponentSchame"
+
+                        }
+
+                    },
+
+                    "language": {
+
+                        "type": "string"
+
+                    },
+
+                    "status": {
+
+                        "type": "string"
+
+                    },
+
+                    "category": {
+
+                        "type": "string"
+
+                    },
+
+                    "id": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "category",
+
+                    "components",
+
+                    "id",
+
+                    "language",
+
+                    "name",
+
+                    "parameter_format",
+
+                    "status"
+
+                ]
+
+            },
+
+            "TemplateSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "parameter_format": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/TemplateComponentSchameRequest"
+
+                        }
+
+                    },
+
+                    "language": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "status": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "category": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "id": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "category",
+
+                    "components",
+
+                    "id",
+
+                    "language",
+
+                    "name",
+
+                    "parameter_format",
+
+                    "status"
+
+                ]
+
+            },
+
+            "TemplateSchemaValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "parameter_format": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "language": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "status": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "category": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "UserAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "user": {
+
+                        "type": "object",
+
+                        "additionalProperties": {
+
+                            "$ref": "#/components/schemas/UserSchema"
+
+                        }
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message",
+
+                    "user"
+
+                ]
+
+            },
+
+            "UserSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "updatedat": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "name": {
+
+                        "type": "string"
+
+                    },
+
+                    "email": {
+
+                        "type": "string"
+
+                    },
+
+                    "username": {
+
+                        "type": "string"
+
+                    },
+
+                    "profilepictureurl": {
+
+                        "type": "string"
+
+                    },
+
+                    "status": {
+
+                        "type": "string"
+
+                    },
+
+                    "organization": {
+
+                        "$ref": "#/components/schemas/OrganizationSchema"
+
+                    },
+
+                    "isOwner": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "phone": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "createdAt",
+
+                    "email",
+
+                    "isOwner",
+
+                    "name",
+
+                    "organization",
+
+                    "phone",
+
+                    "profilepictureurl",
+
+                    "status",
+
+                    "uniqueId",
+
+                    "updatedat",
+
+                    "username"
+
+                ]
+
+            },
+
+            "VerifyAPIRegisterResponse200Post": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "token": {
+
+                        "type": "string"
+
+                    },
+
+                    "message": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "message",
+
+                    "token"
+
+                ]
+
+            },
+
+            "WAProfile": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "about": {
+
+                        "type": "string"
+
+                    },
+
+                    "address": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "industry": {
+
+                        "type": "string"
+
+                    },
+
+                    "email": {
+
+                        "type": "string"
+
+                    },
+
+                    "website_1": {
+
+                        "type": "string"
+
+                    },
+
+                    "website_2": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "about",
+
+                    "address",
+
+                    "description",
+
+                    "email",
+
+                    "industry",
+
+                    "website_1",
+
+                    "website_2"
+
+                ]
+
+            },
+
+            "WAProfileRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "about": {
+
+                        "type": "string"
+
+                    },
+
+                    "address": {
+
+                        "type": "string"
+
+                    },
+
+                    "description": {
+
+                        "type": "string"
+
+                    },
+
+                    "industry": {
+
+                        "type": "string"
+
+                    },
+
+                    "email": {
+
+                        "type": "string"
+
+                    },
+
+                    "website_1": {
+
+                        "type": "string"
+
+                    },
+
+                    "website_2": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "about",
+
+                    "address",
+
+                    "description",
+
+                    "email",
+
+                    "industry",
+
+                    "website_1",
+
+                    "website_2"
+
+                ]
+
+            },
+
+            "WebhookAPIResponse200": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "enabled": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "callbackURI": {
+
+                        "type": "string"
+
+                    },
+
+                    "messageEventMessage": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventSent": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventDelete": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventPayments": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventEnqueued": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventDelivered": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventBilling": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventOthers": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventFailed": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventRead": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "messageEventFlowMessage": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "systemEventTemplateEvent": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "systemEventAccountRelatedEvent": {
+
+                        "type": "boolean"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "callbackURI",
+
+                    "enabled",
+
+                    "messageEventBilling",
+
+                    "messageEventDelete",
+
+                    "messageEventDelivered",
+
+                    "messageEventEnqueued",
+
+                    "messageEventFailed",
+
+                    "messageEventFlowMessage",
+
+                    "messageEventMessage",
+
+                    "messageEventOthers",
+
+                    "messageEventPayments",
+
+                    "messageEventRead",
+
+                    "messageEventSent",
+
+                    "systemEventAccountRelatedEvent",
+
+                    "systemEventTemplateEvent"
+
+                ]
+
+            },
+
+            "WebhookIntegrationRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "systemEventAccountRelatedEvent": {
+
+                        "type": "boolean"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "systemEventAccountRelatedEvent"
+
+                ]
+
+            },
+
+            "WebhookIntegrationSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "systemEventAccountRelatedEvent": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "WhatsappBusinessAccountSchema": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "updatedat": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "uniqueId": {
+
+                        "type": "string"
+
+                    },
+
+                    "createdAt": {
+
+                        "type": "string",
+
+                        "format": "date-time"
+
+                    },
+
+                    "businessAccountId": {
+
+                        "type": "string"
+
+                    },
+
+                    "accessToken": {
+
+                        "type": "string"
+
+                    },
+
+                    "webhookSecret": {
+
+                        "type": "string"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "accessToken",
+
+                    "businessAccountId",
+
+                    "createdAt",
+
+                    "uniqueId",
+
+                    "updatedat",
+
+                    "webhookSecret"
+
+                ]
+
+            }
+
+        },
+
+        "securitySchemes": {
+
+            "tokenAuth": {
+
+                "type": "apiKey",
+
+                "in": "header",
+
+                "name": "Authorization",
+
+                "description": "Token-based authentication with required prefix \"Token\""
+
+            }
+
+        }
+
     }
-  }
+
 }
