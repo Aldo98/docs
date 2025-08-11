@@ -254,6 +254,16 @@
 
                 },
 
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
                 "responses": {
 
                     "400": {
