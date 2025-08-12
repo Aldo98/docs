@@ -222,7 +222,7 @@
 
                             "schema": {
 
-                                "$ref": "#/components/schemas/MessageRequest"
+                                "$ref": "#/components/schemas/MessageTextRequest"
 
                             }
 
@@ -232,7 +232,7 @@
 
                             "schema": {
 
-                                "$ref": "#/components/schemas/MessageRequest"
+                                "$ref": "#/components/schemas/MessageTextRequest"
 
                             }
 
@@ -242,7 +242,7 @@
 
                             "schema": {
 
-                                "$ref": "#/components/schemas/MessageRequest"
+                                "$ref": "#/components/schemas/MessageTextRequest"
 
                             }
 
@@ -274,7 +274,7 @@
 
                                 "schema": {
 
-                                    "$ref": "#/components/schemas/SendMessageMETASchemaValidationError"
+                                    "$ref": "#/components/schemas/MessageTextSerializerValidationError"
 
                                 }
 
@@ -5516,15 +5516,15 @@
 
                 "enum": [
 
-                    "wa",
+                    "Whatsapp",
 
-                    "sms"
+                    "SMS"
 
                 ],
 
                 "type": "string",
 
-                "description": "* `wa` - wa\n* `sms` - sms"
+                "description": "* `Whatsapp` - Whatsapp\n* `SMS` - SMS"
 
             },
 
@@ -7102,82 +7102,6 @@
 
             },
 
-            "MessageRequest": {
-
-                "type": "object",
-
-                "properties": {
-
-                    "channel": {
-
-                        "$ref": "#/components/schemas/ChannelEnum"
-
-                    },
-
-                    "to": {
-
-                        "type": "string",
-
-                        "minLength": 1,
-
-                        "maxLength": 20
-
-                    },
-
-                    "message_type": {
-
-                        "$ref": "#/components/schemas/MessageTypeEnum"
-
-                    },
-
-                    "message_content": {
-
-                        "type": "string",
-
-                        "nullable": true
-
-                    },
-
-                    "template_name": {
-
-                        "type": "string",
-
-                        "nullable": true,
-
-                        "maxLength": 100
-
-                    },
-
-                    "message_id": {
-
-                        "type": "string",
-
-                        "nullable": true,
-
-                        "maxLength": 50
-
-                    },
-
-                    "components": {
-
-                        "nullable": true
-
-                    }
-
-                },
-
-                "required": [
-
-                    "channel",
-
-                    "message_type",
-
-                    "to"
-
-                ]
-
-            },
-
             "MessageResponse200": {
 
                 "type": "object",
@@ -7188,13 +7112,21 @@
 
                         "type": "string"
 
+                    },
+
+                    "status": {
+
+                        "$ref": "#/components/schemas/StatusEnum"
+
                     }
 
                 },
 
                 "required": [
 
-                    "message_id"
+                    "message_id",
+
+                    "status"
 
                 ]
 
@@ -7343,6 +7275,172 @@
                     "message"
 
                 ]
+
+            },
+
+            "MessageTextRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "message_id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Used to reply message"
+
+                    },
+
+                    "text": {
+
+                        "allOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/MessageTextSchemaRequest"
+
+                            }
+
+                        ],
+
+                        "description": "Message text content"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "message_id",
+
+                    "text"
+
+                ]
+
+            },
+
+            "MessageTextSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "preview_url": {
+
+                        "type": "boolean"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "preview_url"
+
+                ]
+
+            },
+
+            "MessageTextSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "message_id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "text": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
 
             },
 
@@ -8630,13 +8728,21 @@
 
                         "type": "string"
 
+                    },
+
+                    "status": {
+
+                        "$ref": "#/components/schemas/StatusEnum"
+
                     }
 
                 },
 
                 "required": [
 
-                    "message"
+                    "message",
+
+                    "status"
 
                 ]
 
@@ -8702,157 +8808,79 @@
 
             },
 
-            "SendMessageMETASchemaValidationError": {
+            "StatusEnum": {
 
-                "type": "object",
+                "enum": [
 
-                "properties": {
+                    "SENT",
 
-                    "messaging_product": {
+                    "SENT!",
 
-                        "type": "array",
+                    "SENT_OK",
 
-                        "items": {
+                    "DELIVERED",
 
-                            "type": "string"
+                    "FAILED",
 
-                        }
+                    "REJECTED",
 
-                    },
+                    "202_OK",
 
-                    "recipient_type": {
+                    "400_ERROR",
 
-                        "type": "array",
+                    "404_USR_NO_APP",
 
-                        "items": {
+                    "405_USR_NO_DLR",
 
-                            "type": "string"
+                    "406_ERROR",
 
-                        }
+                    "408_TIMEOUT",
 
-                    },
+                    "409_WA_LOOKUP_TIMEOUT",
 
-                    "to": {
+                    "410_TIMEOUT_PENDING",
 
-                        "type": "array",
+                    "413_ERROR",
 
-                        "items": {
+                    "500_ERROR",
 
-                            "type": "string"
+                    "501_DEV_NO_INT",
 
-                        }
+                    "502_DEV_NO_APP",
 
-                    },
+                    "505_BANNED",
 
-                    "type": {
+                    "506_LOGGED_OUT",
 
-                        "type": "array",
+                    "605_LICENSE_ERROR",
 
-                        "items": {
+                    "901_ERROR",
 
-                            "type": "string"
+                    "1001_UNKNOWN_LOCALIZATION",
 
-                        }
+                    "1100_NOT_ON_WHATSAPP",
 
-                    },
+                    "1101_NO_COUNTRY_CODE",
 
-                    "context": {
+                    "1102_NOT_REGISTERED",
 
-                        "type": "array",
+                    "1103_NOT_ACTIVATED",
 
-                        "items": {
+                    "1104_NO_LONGER_REGISTERED",
 
-                            "type": "string"
+                    "1105_INVALID_NUMBER",
 
-                        }
+                    "1200_NO_OPERATOR",
 
-                    },
+                    "1204_USR_PREPAID",
 
-                    "text": {
+                    "1205_USR_POSTPAID"
 
-                        "type": "array",
+                ],
 
-                        "items": {
+                "type": "string",
 
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "reaction": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "image": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "location": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "contacts": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "interactive": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    },
-
-                    "non_field_errors": {
-
-                        "type": "array",
-
-                        "items": {
-
-                            "type": "string"
-
-                        }
-
-                    }
-
-                }
+                "description": "* `SENT` - SENT\n* `SENT!` - SENT!\n* `SENT_OK` - SENT_OK\n* `DELIVERED` - DELIVERED\n* `FAILED` - FAILED\n* `REJECTED` - REJECTED\n* `202_OK` - 202_OK\n* `400_ERROR` - 400_ERROR\n* `404_USR_NO_APP` - 404_USR_NO_APP\n* `405_USR_NO_DLR` - 405_USR_NO_DLR\n* `406_ERROR` - 406_ERROR\n* `408_TIMEOUT` - 408_TIMEOUT\n* `409_WA_LOOKUP_TIMEOUT` - 409_WA_LOOKUP_TIMEOUT\n* `410_TIMEOUT_PENDING` - 410_TIMEOUT_PENDING\n* `413_ERROR` - 413_ERROR\n* `500_ERROR` - 500_ERROR\n* `501_DEV_NO_INT` - 501_DEV_NO_INT\n* `502_DEV_NO_APP` - 502_DEV_NO_APP\n* `505_BANNED` - 505_BANNED\n* `506_LOGGED_OUT` - 506_LOGGED_OUT\n* `605_LICENSE_ERROR` - 605_LICENSE_ERROR\n* `901_ERROR` - 901_ERROR\n* `1001_UNKNOWN_LOCALIZATION` - 1001_UNKNOWN_LOCALIZATION\n* `1100_NOT_ON_WHATSAPP` - 1100_NOT_ON_WHATSAPP\n* `1101_NO_COUNTRY_CODE` - 1101_NO_COUNTRY_CODE\n* `1102_NOT_REGISTERED` - 1102_NOT_REGISTERED\n* `1103_NOT_ACTIVATED` - 1103_NOT_ACTIVATED\n* `1104_NO_LONGER_REGISTERED` - 1104_NO_LONGER_REGISTERED\n* `1105_INVALID_NUMBER` - 1105_INVALID_NUMBER\n* `1200_NO_OPERATOR` - 1200_NO_OPERATOR\n* `1204_USR_PREPAID` - 1204_USR_PREPAID\n* `1205_USR_POSTPAID` - 1205_USR_POSTPAID"
 
             },
 
