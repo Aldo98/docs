@@ -46,7 +46,18 @@
           {
             "group": "Messages",
             "pages": [
-              "api-reference/messages/send_messages"
+              "api-reference/messages/message_text",
+              "api-reference/messages/message_reaction",
+              "api-reference/messages/message_media",
+              "api-reference/messages/message_location",
+              "api-reference/messages/message_contact",
+              "api-reference/messages/message_interactive_product",
+              "api-reference/messages/message_interactive_products",
+              "api-reference/messages/message_interactive_catalog",
+              "api-reference/messages/message_interactive_flow",
+              "api-reference/messages/message_interactive_list",
+              "api-reference/messages/message_interactive_reply",
+              "api-reference/messages/message_template",
             ]
           }
         ]

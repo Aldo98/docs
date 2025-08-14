@@ -222,6 +222,1566 @@
 
                             "schema": {
 
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/contact": {
+
+            "post": {
+
+                "operationId": "WARe_messages_contact_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageContactRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageContactRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageContactRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageContactSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/catalog": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_catalog_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveCatalogRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveCatalogRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveCatalogRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveCatalogSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/flow": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_flow_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveFlowRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveFlowRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveFlowRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveFlowSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/list": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_list_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveListRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveListRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveListRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveListSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/product": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_product_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveProductSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/products": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_products_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductsRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductsRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveProductsRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveProductsSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/interactive/reply": {
+
+            "post": {
+
+                "operationId": "WARe_messages_interactive_reply_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveReplyRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveReplyRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageInteractiveReplyRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageInteractiveReplySerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/location": {
+
+            "post": {
+
+                "operationId": "WARe_messages_location_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageLocationRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageLocationRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageLocationRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageLocationSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/media": {
+
+            "post": {
+
+                "operationId": "WARe_messages_media_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageMediaRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageMediaRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageMediaRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageMediaSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/reaction": {
+
+            "post": {
+
+                "operationId": "WARe_messages_reaction_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageReactionRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageReactionRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageReactionRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageReactionSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/template": {
+
+            "post": {
+
+                "operationId": "WARe_messages_template_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageTemplateRequest"
+
+                            }
+
+                        },
+
+                        "application/x-www-form-urlencoded": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageTemplateRequest"
+
+                            }
+
+                        },
+
+                        "multipart/form-data": {
+
+                            "schema": {
+
+                                "$ref": "#/components/schemas/MessageTemplateRequest"
+
+                            }
+
+                        }
+
+                    },
+
+                    "required": true
+
+                },
+
+                "security": [
+
+                    {
+
+                        "tokenAuth": []
+
+                    }
+
+                ],
+
+                "responses": {
+
+                    "400": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageTemplateSerializerValidationError"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "200": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/MessageResponse200"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    },
+
+                    "500": {
+
+                        "content": {
+
+                            "application/json": {
+
+                                "schema": {
+
+                                    "$ref": "#/components/schemas/Response500"
+
+                                }
+
+                            }
+
+                        },
+
+                        "description": ""
+
+                    }
+
+                }
+
+            }
+
+        },
+
+        "/WARe/messages/text": {
+
+            "post": {
+
+                "operationId": "WARe_messages_text_create",
+
+                "tags": [
+
+                    "WARe"
+
+                ],
+
+                "requestBody": {
+
+                    "content": {
+
+                        "application/json": {
+
+                            "schema": {
+
                                 "$ref": "#/components/schemas/MessageTextRequest"
 
                             }
@@ -7072,6 +8632,2034 @@
 
             },
 
+            "MessageContactAddressSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "street": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Street number and name"
+
+                    },
+
+                    "city": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "City name"
+
+                    },
+
+                    "state": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "State abbreviation"
+
+                    },
+
+                    "zip": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "ZIP code"
+
+                    },
+
+                    "country": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Full country name"
+
+                    },
+
+                    "country_code": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Two-letter country abbreviation"
+
+                    },
+
+                    "type": {
+
+                        "nullable": true,
+
+                        "description": "Standard values are HOME and WORK\n\n* `HOME` - HOME\n* `WORK` - WORK",
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/TypeFedEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    }
+
+                },
+
+                "required": [
+
+                    "city",
+
+                    "country",
+
+                    "country_code",
+
+                    "state",
+
+                    "street",
+
+                    "type",
+
+                    "zip"
+
+                ]
+
+            },
+
+            "MessageContactEmailSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "email": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Email Address"
+
+                    },
+
+                    "type": {
+
+                        "nullable": true,
+
+                        "description": "Standard values are HOME and WORK\n\n* `HOME` - HOME\n* `WORK` - WORK",
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/TypeFedEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    }
+
+                },
+
+                "required": [
+
+                    "email",
+
+                    "type"
+
+                ]
+
+            },
+
+            "MessageContactNameSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "formatted_name": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Full Name, as it normally appears"
+
+                    },
+
+                    "first_name": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "First name"
+
+                    },
+
+                    "last_name": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Last name"
+
+                    },
+
+                    "middle_name": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Middle name"
+
+                    },
+
+                    "suffix": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Name suffix"
+
+                    },
+
+                    "prefix": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Name prefix"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "first_name",
+
+                    "formatted_name",
+
+                    "last_name",
+
+                    "middle_name",
+
+                    "prefix",
+
+                    "suffix"
+
+                ]
+
+            },
+
+            "MessageContactOrgSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "company": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Name of contact company"
+
+                    },
+
+                    "department": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Name of contact department"
+
+                    },
+
+                    "title": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Contact business title"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "company",
+
+                    "department",
+
+                    "title"
+
+                ]
+
+            },
+
+            "MessageContactPhoneSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "phone": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Automatically populated with the wa_id value as a formated phone number"
+
+                    },
+
+                    "type": {
+
+                        "nullable": true,
+
+                        "description": "Standard values are CELL, MAIN, IPHONE, HOME and WORK\n\n* `CELL` - CELL\n* `MAIN` - MAIN\n* `IPHONE` - IPHONE\n* `HOME` - HOME",
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/MessageContactPhoneSchemaTypeEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    },
+
+                    "wa_id": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "Whatsapp ID"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "phone",
+
+                    "type",
+
+                    "wa_id"
+
+                ]
+
+            },
+
+            "MessageContactPhoneSchemaTypeEnum": {
+
+                "enum": [
+
+                    "CELL",
+
+                    "MAIN",
+
+                    "IPHONE",
+
+                    "HOME"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `CELL` - CELL\n* `MAIN` - MAIN\n* `IPHONE` - IPHONE\n* `HOME` - HOME"
+
+            },
+
+            "MessageContactRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "contacts": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageContactSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "contacts",
+
+                    "destination"
+
+                ]
+
+            },
+
+            "MessageContactSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "addresses": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageContactAddressSchemaRequest"
+
+                        }
+
+                    },
+
+                    "birthday": {
+
+                        "type": "string",
+
+                        "format": "date",
+
+                        "description": "YYYY-MM-DD formatted string"
+
+                    },
+
+                    "emails": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageContactEmailSchemaRequest"
+
+                        },
+
+                        "nullable": true
+
+                    },
+
+                    "name": {
+
+                        "$ref": "#/components/schemas/MessageContactNameSchemaRequest"
+
+                    },
+
+                    "org": {
+
+                        "allOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/MessageContactOrgSchemaRequest"
+
+                            }
+
+                        ],
+
+                        "nullable": true
+
+                    },
+
+                    "phones": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageContactPhoneSchemaRequest"
+
+                        },
+
+                        "nullable": true
+
+                    },
+
+                    "urls": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageContactUrlSchemaRequest"
+
+                        },
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "addresses",
+
+                    "birthday",
+
+                    "emails",
+
+                    "name",
+
+                    "org",
+
+                    "phones",
+
+                    "urls"
+
+                ]
+
+            },
+
+            "MessageContactSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "contacts": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageContactUrlSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "url": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "URL"
+
+                    },
+
+                    "type": {
+
+                        "nullable": true,
+
+                        "description": "Standard values are HOME and WORK\n\n* `HOME` - HOME\n* `WORK` - WORK",
+
+                        "oneOf": [
+
+                            {
+
+                                "$ref": "#/components/schemas/TypeFedEnum"
+
+                            },
+
+                            {
+
+                                "$ref": "#/components/schemas/NullEnum"
+
+                            }
+
+                        ]
+
+                    }
+
+                },
+
+                "required": [
+
+                    "type",
+
+                    "url"
+
+                ]
+
+            },
+
+            "MessageInteractiveCatalogRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "thumbnail_product_retailer_id": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "channel",
+
+                    "destination",
+
+                    "thumbnail_product_retailer_id"
+
+                ]
+
+            },
+
+            "MessageInteractiveCatalogSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "body": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "thumbnail_product_retailer_id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageInteractiveFlowRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "header": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Header content displayed on top of a message"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "footer": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "the footer content"
+
+                    },
+
+                    "flow_id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique identifier og the Flow provided by WhatsApp"
+
+                    },
+
+                    "flow_cta": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Thext on the CTA button, eg Signup"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "channel",
+
+                    "destination",
+
+                    "flow_cta",
+
+                    "flow_id",
+
+                    "footer",
+
+                    "header"
+
+                ]
+
+            },
+
+            "MessageInteractiveFlowSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "header": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "body": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "footer": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "flow_id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "flow_cta": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageInteractiveListRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "header": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Header content displayed on top of a message"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "footer": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "the footer content"
+
+                    },
+
+                    "sections": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageInteractiveListSectionSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "channel",
+
+                    "destination",
+
+                    "footer",
+
+                    "header",
+
+                    "sections"
+
+                ]
+
+            },
+
+            "MessageInteractiveListSectionRowSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique row identifier"
+
+                    },
+
+                    "title": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Title row content"
+
+                    },
+
+                    "description": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Description row content"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "description",
+
+                    "id",
+
+                    "title"
+
+                ]
+
+            },
+
+            "MessageInteractiveListSectionSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "title": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Title of the section"
+
+                    },
+
+                    "rows": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageInteractiveListSectionRowSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "rows",
+
+                    "title"
+
+                ]
+
+            },
+
+            "MessageInteractiveListSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "header": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "body": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "footer": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "sections": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageInteractiveProductRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "interactive_product": {
+
+                        "$ref": "#/components/schemas/MessageInteractiveProductSchemaRequest"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "interactive_product"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "footer": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "the footer content"
+
+                    },
+
+                    "catalog_id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique identifier of the Facebook catalog linked to your WhatsApp Business Account."
+
+                    },
+
+                    "product_retailer_id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique identifier of the product in a catalog"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "catalog_id",
+
+                    "footer",
+
+                    "product_retailer_id"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductSectionItemSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "product_retailer_id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique identifier of the product in a catalog"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "product_retailer_id"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "interactive_product": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageInteractiveProductsRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "interactive_products": {
+
+                        "$ref": "#/components/schemas/MessageInteractiveProductsSchemaRequest"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "interactive_products"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductsSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "header": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Header content displayed on top of a message"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "footer": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1,
+
+                        "description": "the footer content"
+
+                    },
+
+                    "catalog_id": {
+
+                        "type": "string",
+
+                        "minLength": 1
+
+                    },
+
+                    "sections": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageInteractiveProductsSectionSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "catalog_id",
+
+                    "footer",
+
+                    "header",
+
+                    "sections"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductsSectionSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "section_title": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Title of the section",
+
+                        "maxLength": 24
+
+                    },
+
+                    "product_items": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageInteractiveProductSectionItemSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "product_items",
+
+                    "section_title"
+
+                ]
+
+            },
+
+            "MessageInteractiveProductsSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "interactive_products": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageInteractiveReplyButtonSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "id": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Unique button identifier"
+
+                    },
+
+                    "title": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Title button content"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "id",
+
+                    "title"
+
+                ]
+
+            },
+
+            "MessageInteractiveReplyRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "body": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "The content of the message"
+
+                    },
+
+                    "buttons": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageInteractiveReplyButtonSchemaRequest"
+
+                        }
+
+                    }
+
+                },
+
+                "required": [
+
+                    "body",
+
+                    "buttons",
+
+                    "channel",
+
+                    "destination"
+
+                ]
+
+            },
+
+            "MessageInteractiveReplySerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "body": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "buttons": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageLocationRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "location": {
+
+                        "$ref": "#/components/schemas/MessageLocationSchemaRequest"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "location"
+
+                ]
+
+            },
+
+            "MessageLocationSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "latitude": {
+
+                        "type": "number",
+
+                        "format": "double",
+
+                        "description": "Location latitude in decimal degrees"
+
+                    },
+
+                    "longitude": {
+
+                        "type": "number",
+
+                        "format": "double",
+
+                        "description": "Location longitude in decimal degrees"
+
+                    },
+
+                    "name": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Name of the location"
+
+                    },
+
+                    "address": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Address of the location"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "address",
+
+                    "latitude",
+
+                    "longitude",
+
+                    "name"
+
+                ]
+
+            },
+
+            "MessageLocationSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "location": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
             "MessageMETASchema": {
 
                 "type": "object",
@@ -7102,6 +10690,314 @@
 
             },
 
+            "MessageMediaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "file": {
+
+                        "type": "string",
+
+                        "format": "binary",
+
+                        "description": "Message file content"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "file"
+
+                ]
+
+            },
+
+            "MessageMediaSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "file": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageReactionRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "message_id": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Used to reply message"
+
+                    },
+
+                    "emoji": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Emoji to appear on the message"
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "destination",
+
+                    "emoji",
+
+                    "message_id"
+
+                ]
+
+            },
+
+            "MessageReactionSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "message_id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "emoji": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "to": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "maxLength": 20
+
+                    },
+
+                    "message_type": {
+
+                        "$ref": "#/components/schemas/MessageTypeEnum"
+
+                    },
+
+                    "message_content": {
+
+                        "type": "string",
+
+                        "nullable": true
+
+                    },
+
+                    "template_name": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "maxLength": 100
+
+                    },
+
+                    "message_id": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "maxLength": 50
+
+                    },
+
+                    "components": {
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "message_type",
+
+                    "to"
+
+                ]
+
+            },
+
             "MessageResponse200": {
 
                 "type": "object",
@@ -7110,7 +11006,9 @@
 
                     "message_id": {
 
-                        "type": "string"
+                        "type": "string",
+
+                        "nullable": true
 
                     },
 
@@ -7278,6 +11176,418 @@
 
             },
 
+            "MessageSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "to": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "message_type": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "message_content": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "template_name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "message_id": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
+            "MessageTemplateComponentParameteSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "$ref": "#/components/schemas/MessageTemplateComponentParameteSchemaTypeEnum"
+
+                    },
+
+                    "text": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1
+
+                    },
+
+                    "currency": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1
+
+                    },
+
+                    "video": {
+
+                        "type": "string",
+
+                        "nullable": true,
+
+                        "minLength": 1
+
+                    },
+
+                    "image": {
+
+                        "type": "string",
+
+                        "format": "binary",
+
+                        "nullable": true
+
+                    },
+
+                    "document": {
+
+                        "type": "string",
+
+                        "format": "binary",
+
+                        "nullable": true
+
+                    },
+
+                    "date_time": {
+
+                        "type": "string",
+
+                        "format": "date",
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "currency",
+
+                    "date_time",
+
+                    "document",
+
+                    "image",
+
+                    "text",
+
+                    "type",
+
+                    "video"
+
+                ]
+
+            },
+
+            "MessageTemplateComponentParameteSchemaTypeEnum": {
+
+                "enum": [
+
+                    "text",
+
+                    "currency",
+
+                    "video",
+
+                    "image",
+
+                    "document",
+
+                    "date_time"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `text` - text\n* `currency` - currency\n* `video` - video\n* `image` - image\n* `document` - document\n* `date_time` - date_time"
+
+            },
+
+            "MessageTemplateComponentSchemaRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "type": {
+
+                        "$ref": "#/components/schemas/MessageTemplateComponentSchemaTypeEnum"
+
+                    },
+
+                    "parameters": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageTemplateComponentParameteSchemaRequest"
+
+                        },
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "parameters",
+
+                    "type"
+
+                ]
+
+            },
+
+            "MessageTemplateComponentSchemaTypeEnum": {
+
+                "enum": [
+
+                    "header",
+
+                    "body",
+
+                    "button"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `header` - header\n* `body` - body\n* `button` - button"
+
+            },
+
+            "MessageTemplateRequest": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "$ref": "#/components/schemas/ChannelEnum"
+
+                    },
+
+                    "destination": {
+
+                        "type": "string",
+
+                        "minLength": 8,
+
+                        "description": "Destination Phone Number, example: +6288888888"
+
+                    },
+
+                    "template_name": {
+
+                        "type": "string",
+
+                        "minLength": 1,
+
+                        "description": "Name of the template"
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "$ref": "#/components/schemas/MessageTemplateComponentSchemaRequest"
+
+                        },
+
+                        "nullable": true
+
+                    }
+
+                },
+
+                "required": [
+
+                    "channel",
+
+                    "components",
+
+                    "destination",
+
+                    "template_name"
+
+                ]
+
+            },
+
+            "MessageTemplateSerializerValidationError": {
+
+                "type": "object",
+
+                "properties": {
+
+                    "channel": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "destination": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "template_name": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "components": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    },
+
+                    "non_field_errors": {
+
+                        "type": "array",
+
+                        "items": {
+
+                            "type": "string"
+
+                        }
+
+                    }
+
+                }
+
+            },
+
             "MessageTextRequest": {
 
                 "type": "object",
@@ -7294,7 +11604,7 @@
 
                         "type": "string",
 
-                        "minLength": 1,
+                        "minLength": 8,
 
                         "description": "Destination Phone Number, example: +6288888888"
 
@@ -7304,7 +11614,9 @@
 
                         "type": "string",
 
-                        "minLength": 1,
+                        "nullable": true,
+
+                        "minLength": 8,
 
                         "description": "Used to reply message"
 
@@ -7312,17 +11624,7 @@
 
                     "text": {
 
-                        "allOf": [
-
-                            {
-
-                                "$ref": "#/components/schemas/MessageTextSchemaRequest"
-
-                            }
-
-                        ],
-
-                        "description": "Message text content"
+                        "$ref": "#/components/schemas/MessageTextSchemaRequest"
 
                     }
 
@@ -7358,7 +11660,9 @@
 
                         "type": "string",
 
-                        "minLength": 1
+                        "minLength": 1,
+
+                        "description": "The content of the message"
 
                     }
 
@@ -8726,7 +13030,9 @@
 
                     "message": {
 
-                        "type": "string"
+                        "type": "string",
+
+                        "nullable": true
 
                     },
 
@@ -9837,6 +14143,22 @@
                     }
 
                 }
+
+            },
+
+            "TypeFedEnum": {
+
+                "enum": [
+
+                    "HOME",
+
+                    "WORK"
+
+                ],
+
+                "type": "string",
+
+                "description": "* `HOME` - HOME\n* `WORK` - WORK"
 
             },
 
