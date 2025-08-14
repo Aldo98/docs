@@ -57,7 +57,7 @@
               "api-reference/messages/message_interactive_flow",
               "api-reference/messages/message_interactive_list",
               "api-reference/messages/message_interactive_reply",
-              "api-reference/messages/message_template",
+              "api-reference/messages/message_template"
             ]
           }
         ]
