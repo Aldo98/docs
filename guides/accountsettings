@@ -1,0 +1,38 @@
+# Account Settings
+
+In this tab, you can view your account settings as well as the linked WhatsApp Business account and its supported capabilities. \
+\
+You can easily access it through **Dashboard \> Settings \> Account**
+
+![Account Settings](/account.png)
+
+## WABA Health Overview
+
+A concise overview of the features and service capabilities available on your account.
+
+| Detail             | Description                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| Phone ID           | The unique identifier of the connected WhatsApp Business Account (WABA).                              |
+| Phone Number       | The phone number associated with your WABA.                                                           |
+| Account Status     | Displays your service activation status (Active or Inactive).                                         |
+| Phone Quality      | Indicates the quality rating of the phone number connected to your WABA (Low, Medium, High).          |
+| Messaging Limits   | The maximum number of customers your service can message per day (e.g., 250 customers/day).           |
+| AI Chat Bot Limits | The number of AI chatbot requests that can be handled within a given period (e.g., 10 requests/hour). |
+
+## (App Name) Account
+
+Settings and details for your connected WhatsApp Business Account.
+
+| Detail | Description                                     |
+| ------ | ----------------------------------------------- |
+| Name   | The display name of your account.               |
+| Email  | The email address associated with your account. |
+
+## Account Utilities
+
+Manage essential actions related to your account, including password reset and organization removal.
+
+| Detail              | Description                                                                     |
+| ------------------- | ------------------------------------------------------------------------------- |
+| Reset Password      | A button that allows you to reset your account.                                 |
+| Delete Organization | A button that permanently deletes your organization linked to the WABA account. |
