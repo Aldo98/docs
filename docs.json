@@ -14,22 +14,19 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Account",
             "pages": [
-              "introduction",
-              "quickstart",
-              "development"
+              "guides/registration"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Features",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "guides/sandbox",
+              "guides/waprofile",
+              "guides/webhook",
+              "guides/optin",
+              "guides/apikey"
             ]
           }
         ]
