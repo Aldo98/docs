@@ -52,7 +52,7 @@
       },
       {
         "tab": "API Reference",
-        "href": "http://172.31.16.56/api"
+        "openapi": "http://172.31.16.56/api"
       }
     ]
   },
