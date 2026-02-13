@@ -11,6 +11,9 @@
         "description": "WA API selling"
 
     },
+    "servers":[{
+        "url": "http://172.31.16.56/api"
+    }],
 
     "paths": {
 
