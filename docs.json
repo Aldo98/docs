@@ -9,25 +9,6 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "icon": "book-open-cover",
-          "href": "https://mintlify.com/docs"
-        },
-        {
-          "anchor": "Community",
-          "icon": "slack",
-          "href": "https://mintlify.com/community"
-        },
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "href": "https://mintlify.com/blog"
-        }
-      ]
-    },
     "tabs": [
       {
         "tab": "Guides",
@@ -52,9 +33,52 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "http://172.31.16.56/api"
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Messages",
+            "pages": [
+              "api-reference/messages/message_text",
+              "api-reference/messages/message_reaction",
+              "api-reference/messages/message_media",
+              "api-reference/messages/message_location",
+              "api-reference/messages/message_contact",
+              "api-reference/messages/message_interactive_product",
+              "api-reference/messages/message_interactive_products",
+              "api-reference/messages/message_interactive_catalog",
+              "api-reference/messages/message_interactive_flow",
+              "api-reference/messages/message_interactive_list",
+              "api-reference/messages/message_interactive_reply",
+              "api-reference/messages/message_template"
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://mintlify.com/community",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/logo/light.svg",
